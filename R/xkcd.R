@@ -1,4 +1,4 @@
-#' @title Use the xkcd API bleh :p
+#' @title Use the xkcd API
 #' @description
 #' Given a comic number, the `xkcd()` function calls the xkcd JSON API and returns the metadata about the comic in the form of a list object.
 #' @param number A scalar numeric vector corresponding to an xkcd comic number
@@ -27,3 +27,20 @@ xkcd <- function(number){
   return(x)
 
 }
+
+draw_comic <- function(x){
+
+  img_type <- tools::file_ext(x$img)
+
+}
+
+
+
+
+
+
+
+
+
+
+
