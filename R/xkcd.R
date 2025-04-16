@@ -28,9 +28,30 @@ xkcd <- function(number){
 
 }
 
+#' @title Plot an xkcd comic strip
+#' @description
+#' draw comic() displays an xkcd comic strip as a plot in a graphics device (e.g., the RStudio plot window)
+#' @param x A list object as returned from [xkcd()]
+#' @importFrom tools file_ext
+#' @importFrom httr GET
+#' @importFrom png readPNG
+#' @importFrom jpeg readJPEG
+#' @importFrom graphics plot.new
+#' @importFrom grid grid.raster
+#' @returns A rastergrob grob. See "Details" section of the [grid::grob()] for more information. If you care.
 draw_comic <- function(x){
 
   img_type <- tools::file_ext(x$img)
+  tmp <- httr::GET(url = x$img)
+
+  if (img_type == "png"){
+    img <- png::readPNG(tmp$content)
+  } else {
+    img <- jpeg::readJPEG(tmp$content)
+  }
+
+  graphics::plot.new()
+  grid::grid.raster(img)
 
 }
 

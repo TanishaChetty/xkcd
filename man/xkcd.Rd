@@ -2,7 +2,7 @@
 % Please edit documentation in R/xkcd.R
 \name{xkcd}
 \alias{xkcd}
-\title{Use the xkcd API bleh :p}
+\title{Use the xkcd API}
 \usage{
 xkcd(number)
 }
